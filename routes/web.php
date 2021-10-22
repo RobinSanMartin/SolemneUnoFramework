@@ -24,10 +24,13 @@ Route::get('/', function () {
 // Route::get('products/show',[App\Http\Controllers\ProductController::class,'edit'])->name('products.show');
 // Route::delete('products/delete',[App\Http\Controllers\ProductController::class,'destroy'])->name('products.delete');
 // Route::post('products/store',[App\Http\Controllers\ProductController::class,'store'])->name('products.store');
-// Route::put('products/update',[App\Http\Controllers\ProductController::class,'update'])->name('products.update');
+// Route::put('products/assign',[App\Http\Controllers\ProductController::class,'update'])->name('products.assign');
 
 //El camino corto
 Route::resource('products', App\Http\Controllers\ProductController::class);
+
+Route::view('/assign', 'products.assign')->name('product.assign.view');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

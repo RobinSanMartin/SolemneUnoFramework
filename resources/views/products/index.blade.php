@@ -8,23 +8,24 @@
             <a href="{{route('products.create')}}">Agregar Producto</a>
         </div>
         <div class="flex px-2 my-2 overflow-hidden">
-            <a href="{{route('products.show',[1])}}">Asignar Sucursal</a>
+            <a href="{{route('product.assign.view')}}">Asignar Sucursal</a>
         </div>
     </div>
 </x-slot>
 <br>
-{!! Form::open(['route' => 'products.store']) !!}
+{!! Form::open(['route' => 'products.store', 'method'=>'get']) !!}
         <x-jet-validation-errors class="mb-4"/>
 
         {{Form::label('nombre', 'Nombre:')}}
-        {{Form::text('nombre', null,)}}
+        {{Form::text('nombre', $request->input('nombre'))}}
 
         {{Form::label('codigo', 'Codigo:')}}
-        {{Form::text('codigo')}}
+        {{Form::text('codigo', $request->input('codigo'))}}
 
         {{Form::label('size', 'Sucursales:')}}
-        {{Form::select('size', ['0' => 'Seleccione Sucursal','1' => 'Sucursal 1',
-			 '2' => 'Sucursal 2', '3' => 'Sucursal 3', '4' => 'Sucursal 4', '5' => 'Sucursal 5'])}}
+        {{Form::select('size', ['1' => 'Sucursal Victoria',
+			 '2' => 'Sucursal Temuco', '3' => 'Sucursal Cañete', '4' => 'Sucursal Valdivia', '5' => 'Sucursal Villarrica'],
+                                    null, ['placeholder' => 'Selecciona Sucursal'])}}
         
         {{Form::submit('Buscar',
             ['style' => 'width:100px; border:3px solid purple; background-color:#2a2a2e; color:white;'])}}
@@ -36,8 +37,13 @@
 	rel="stylesheet">
 	<div class="col-span-12">
 		<div class="overflow-auto lg:overflow-visible ">
-			<table class="table text-gray-400 border-separate space-y-6 text-sm">
+			<table class="table text-gray-400 border-separate space-y-6 text-sm" align="center" style="box-shadow:15px 15px 10px #555555;">
 				<thead class="bg-gray-800 text-gray-500">
+					<tr>
+						<th class="p-6" colspan="8" style="font-size: 30px; background-color:black">
+							Detalle de productos
+						</th>
+					</tr>
 					<tr>
 						<th class="p-6">Nombre</th>
 						<th class="p-6">Categoría</th>
@@ -59,7 +65,7 @@
 							123-t
 						</td>
 						<td class="p-6">
-							Sucursal 3
+							Sucursal Victoria
 						</td>
 						<td class="p-6">
 							200 unidades
@@ -91,7 +97,7 @@
 							321-t
 						</td>
 						<td class="p-6">
-							Sucursal 2
+							Sucursal Temuco
 						</td>
 						<td class="p-6">
 							100 unidades
@@ -123,7 +129,7 @@
 							312-t
 						</td>
 						<td class="p-6">
-							Sucursal 1
+							Sucursal Cañete
 						</td>
 						<td class="p-6">
 							250 unidades

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AssignProductRequest;
+use App\Http\Requests\CreateProductRequest;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,9 +13,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('products.index');
+        return view('products.index')->with(compact('request'));
     }
 
     /**
@@ -32,9 +34,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
-        //
+        $input = $request->all();
+        dd($input);
     }
 
     /**
@@ -66,9 +69,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AssignProductRequest $request, $id)
     {
-        //
+        $input = $request->all();
+        dd($input);
     }
 
     /**
