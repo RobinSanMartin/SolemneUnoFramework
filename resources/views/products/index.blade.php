@@ -77,15 +77,21 @@
 							<span class="bg-green-400 text-gray-50 rounded-md px-2">Descripcion 1</span>
 						</td>
 						<td class="p-6">
-							<a href="{{route('products.show',[1])}}" class="text-gray-400 hover:text-gray-100 mr-2">
-								<i class="material-icons-outlined text-base">visibility</i>
-							</a>
-							<a href="{{route('products.edit',[1])}}" class="text-gray-400 hover:text-gray-100  mx-2">
-								<i class="material-icons-outlined text-base">edit</i>
-							</a>
-							<a href="{{route('products.destroy',[1])}}" class="text-gray-400 hover:text-gray-100  ml-2">
-								<i class="material-icons-round text-base">delete_outline</i>
-							</a>
+						<a href="{{ route('products.show',[1]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">visibility</i>
+
+						</a>
+						
+						<a href="{{ route('products.edit',[1]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">edit</i>
+
+						</a>
+
+						{!! Form::open(['route' => ['products.destroy',1], 'method'=>'delete']) !!}
+						{{Form::button('<i class="text-gray-400 hover:text-gray-100  ml-2">delete_outline</i>', ['type' => 'submit', 'class' => 'material-icons-round text-base'] ) }}  
+						{!! Form::close() !!}
+							
+							
 						</td>
 					</tr>
 					<tr class="bg-gray-800">
@@ -109,14 +115,26 @@
 							<span class="bg-green-400 text-gray-50 rounded-md px-2">Descripcion 2</span>
 						</td>
 						<td class="p-6">
-							<a href="{{route('products.show',[2])}}" class="text-gray-400 hover:text-gray-100 mr-2">
-								<i class="material-icons-outlined text-base">visibility</i>
-							</a>
-							<a href="{{route('products.edit',[2])}}" class="text-gray-400 hover:text-gray-100  mx-2">
-								<i class="material-icons-outlined text-base">edit</i>
-							</a>
-							<a href="{{route('products.destroy',[2])}}" class="text-gray-400 hover:text-gray-100  ml-2">
-								<i class="material-icons-round text-base">delete_outline</i>
+						<a href="{{ route('products.show',[2]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">visibility</i>
+
+						</a>
+					
+						<a href="{{ route('products.edit',[2]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">edit</i>
+
+						</a>
+
+
+						
+						{!! Form::open(['route' => ['products.destroy',2], 'method'=>'delete']) !!}
+						{{Form::button('<i class="text-gray-400 hover:text-gray-100  ml-2">delete_outline</i>', ['type' => 'submit', 'class' => 'material-icons-round text-base'] ) }}  
+						{!! Form::close() !!}
+							
+                            
+							
+							
+							
 							</a>
 						</td>
 					</tr>
@@ -141,14 +159,21 @@
 							<span class="bg-green-400 text-gray-50 rounded-md px-2">Descripcion 3</span>
 						</td>
 						<td class="p-6">
-							<a href="{{route('products.show',[3])}}" class="text-gray-400 hover:text-gray-100 mr-2">
-								<i class="material-icons-outlined text-base">visibility</i>
-							</a>
-							<a href="{{route('products.edit',[3])}}" class="text-gray-400 hover:text-gray-100  mx-2">
-								<i class="material-icons-outlined text-base">edit</i>
-							</a>
-							<a href="{{route('products.destroy',[3])}}" class="text-gray-400 hover:text-gray-100  ml-2">
-								<i class="material-icons-round text-base">delete_outline</i>
+
+						<a href="{{ route('products.show',[3]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">visibility</i>
+
+						</a>
+						<a href="{{ route('products.edit',[3]) }}" class="text-gray-400 hover:text-gray-100  ml-2">
+							<i class="material-icons-round text-base">edit</i>
+
+						</a>
+						
+						<!-- aqui hay un problema con el icono-->		
+						{!! Form::open(['route' => ['products.destroy',3], 'method'=>'delete']) !!}
+						{{Form::button('<i class="text-gray-400 hover:text-gray-100  ml-2">delete_outline</i>',['type' => 'submit','class' => 'material-icons-round text-base' ])}}   	
+						{!! Form::close() !!}
+						
 							</a>
 						</td>
 					</tr>

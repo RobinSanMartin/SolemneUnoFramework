@@ -29,7 +29,9 @@ Route::get('/', function () {
 //El camino corto
 Route::resource('products', App\Http\Controllers\ProductController::class);
 
+
 Route::view('/assign', 'products.assign')->name('product.assign.view');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

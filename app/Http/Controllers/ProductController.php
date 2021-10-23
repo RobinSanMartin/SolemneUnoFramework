@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AssignProductRequest;
 use App\Http\Requests\CreateProductRequest;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -48,7 +49,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $nombre = 'PRODUCTO 1';
+        $codigo = 'CODIGO 1';
+        $precioventa = '$200.00';
+        $cantidad = '150';
+        $descripcion = 'DESCRIPCION 1';
+        $sucursal = 'SUCURSAL VICTORIA';
+        $categoria = 'CATEGORIA 1';
+        return view('products.show')->with(compact('nombre','codigo','precioventa','cantidad','descripcion','sucursal','categoria'));
+        
     }
 
     /**
@@ -59,7 +68,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nombre = 'PRODUCTO 1';
+        $codigo = 'CODIGO 1';
+        $precioventa = '$200.00';
+        $cantidad = '150';
+        $descripcion = 'DESCRIPCION 1';
+        $sucursal = 'SUCURSAL VICTORIA';
+        $categoria = 'CATEGORIA 1';
+        return view('products.edit')->with(compact('nombre','codigo','precioventa','cantidad','descripcion','sucursal','categoria'));
     }
 
     /**
@@ -83,6 +99,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alert::success('Registro Eliminado' , 'El registro ' . $id . ' fue eliminado exitosamente');
+        return redirect('/products');
     }
 }
