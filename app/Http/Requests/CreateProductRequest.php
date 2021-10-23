@@ -33,3 +33,4 @@ class CreateProductRequest extends FormRequest
         ];
     }
 }
+   
